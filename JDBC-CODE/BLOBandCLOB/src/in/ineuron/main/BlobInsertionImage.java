@@ -1,0 +1,53 @@
+package in.ineuron.main;
+import java.io.*;
+import java.sql.*;
+import java.util.Scanner;
+import in.ineuron.util.JdbcUtil;
+
+public class BlobInsertionImage {
+	public static void main(String[] args) {
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		Scanner scanner = null;
+		String name = null;
+		String imageLoc = null;
+
+		try {
+			connection = JdbcUtil.getJdbcConnection();
+
+			String sqlInsertQuery = "insert into person(name,image) values(?,?)";
+			if (connection != null)
+				pstmt = connection.prepareStatement(sqlInsertQuery);
+
+			if (pstmt != null) {
+				scanner = new Scanner(System.in);
+
+				if (scanner != null) {
+					System.out.print("Enter the name :: ");
+					name = scanner.next();
+
+					System.out.print("Enter the image location :: ");
+					imageLoc = scanner.next();//  D:\images\nitin.JPG
+				}
+
+				pstmt.setString(1, name);
+				pstmt.setBinaryStream(2, new FileInputStream(new File(imageLoc)));
+
+				int rowAffected = pstmt.executeUpdate();
+				System.out.println("No of rows inserted inserted is :: " + rowAffected);
+			}
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				JdbcUtil.cleanUp(connection, pstmt, null);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			scanner.close();
+		}
+	}
+}

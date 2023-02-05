@@ -1,0 +1,123 @@
+package in.ineuron.controller;
+import java.util.Scanner;
+import in.ineuron.dto.Student;
+import in.ineuron.service.IStudentService;
+import servicefactory.StudentServiceFactory;
+
+public class TestApp 
+{
+	public static void main(String[] args) {
+		
+	updateOperation();
+		
+	}
+	
+		
+	 private static void updateOperation() {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("Enter the student id :: ");
+			int sid = scanner.nextInt();
+			IStudentService studentService = StudentServiceFactory.getStudentService();
+			Student std = studentService.searchStudent(sid);
+			
+			if (std != null) {			
+				System.out.println("Old name is::" +std.getSname());					
+				System.out.println("Old age is:"+std.getSage());										
+				System.out.println("Old address is:"+std.getSaddress());				
+												
+			} else {
+				System.out.println("Record not found for the given id :: " + sid);
+			}
+						
+			System.out.print("Enter the student new  name :: ");
+			String sname = scanner.next();
+		
+			System.out.print("Enter the student new age :: ");
+			int sage = scanner.nextInt();
+		
+			System.out.print("Enter the student new addres :: ");
+			String saddress = scanner.next();
+					
+			String msg = studentService.updateStudent(sid,sname,sage,saddress);
+			if (msg.equalsIgnoreCase("success")) {
+				System.out.println("record Updated succesfully");
+			} else if (msg.equalsIgnoreCase("not found")) {
+				System.out.println("record not avilable for the given id ::" + sid);
+			} else {
+				System.out.println("record Updation failed....");
+			}
+			
+			scanner.close();
+		}
+	
+	
+	
+
+	
+	
+
+	 private static void selectOperation() {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("Enter the student id :: ");
+			int sid = scanner.nextInt();
+
+			IStudentService studentService = StudentServiceFactory.getStudentService();
+			Student std = studentService.searchStudent(sid);
+			if (std != null) {
+				System.out.println("SID\tSNAME\tSAGE\tSADDR");
+				System.out.println(std.getSid() + "\t" + std.getSname() + "\t" + std.getSage() + "\t" + std.getSaddress());
+			} else {
+				System.out.println("Record not found for the given id :: " + sid);
+			}
+			scanner.close();
+		}
+	
+	
+	
+	
+		
+	
+	private static void deleteRecord() {
+		Scanner scanner = new Scanner(System.in);
+		IStudentService studentService = StudentServiceFactory.getStudentService();
+		
+		System.out.print("Enter the student id to be deleted:: ");
+		int sid = scanner.nextInt();	
+		String msg = studentService.deleteStudent(sid);
+		if (msg.equalsIgnoreCase("success")) {
+			System.out.println("record deleted succesfully");
+		} else if (msg.equalsIgnoreCase("not found")) {
+			System.out.println("record not avilable for the given id ::" + sid);
+		} else {
+			System.out.println("record deletion failed....");
+		}
+
+		scanner.close();
+	}
+	
+		
+	
+	
+		private static void insertOperation() {
+			IStudentService studentService = StudentServiceFactory.getStudentService();
+
+			Scanner scanner = new Scanner(System.in);
+
+			System.out.print("Enter the student name :: ");
+			String sname = scanner.next();
+
+			System.out.print("Enter the student age :: ");
+			int sage = scanner.nextInt();
+
+			System.out.print("Enter the student addres :: ");
+			String saddress = scanner.next();
+
+			String msg = studentService.addStudent(sname, sage, saddress);
+			if (msg.equalsIgnoreCase("success")) {
+				System.out.println("record inserted succesfully");
+			} else {
+				System.out.println("record insertion failed....");
+			}
+			scanner.close();		
+	    }
+}
