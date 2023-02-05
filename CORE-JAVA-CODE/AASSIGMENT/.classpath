@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Assigment-1"/>
+	<classpathentry kind="src" path="Assigment-2/src"/>
+	<classpathentry kind="src" path="Assigment-3/GuesserGame/src"/>
+	<classpathentry kind="src" path="Assigment-4/src"/>
+	<classpathentry kind="output" path="Assigment-2/bin"/>
+</classpath>

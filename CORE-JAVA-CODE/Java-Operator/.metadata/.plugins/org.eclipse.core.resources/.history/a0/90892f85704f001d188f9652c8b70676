@@ -1,0 +1,11 @@
+
+public class AssigmentOperator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       int b=10;
+       b+=40;
+       System.out.println(b);
+	}
+
+}

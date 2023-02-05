@@ -1,0 +1,22 @@
+
+public class TernaryOperator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     /* int a=10;
+      int b=20;
+      
+      int c=(a>b)?a:b;
+      System.out.println(c);*/
+		int a=20;
+		int b=40;
+		int c=60;
+		
+		int d=(a>b)? (a>c)?a:c  : (b>c)?b:c; 
+      
+		System.out.println(d);
+      
+      
+	}
+
+}

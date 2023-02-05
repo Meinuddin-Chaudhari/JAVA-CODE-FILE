@@ -1,0 +1,17 @@
+
+public class DoWhile {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 int n=5;
+	      int i=0;
+	      do
+	      {
+	    	  System.out.println("*"); 
+	    	  i++;
+	      }
+	      while(i<n);
+	   
+	}
+
+}

@@ -1,0 +1,22 @@
+
+public class SwitchCase {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        int a=100;
+        
+        switch(a)
+        {
+        case 40:System.out.println("case-1");
+              break;
+        case 60:System.out.println("case-2");
+              break;
+        case 10:System.out.println("case-3");
+               break;
+        case 90:System.out.println("case-4");
+               break;
+        default:System.out.println("Nothing to Match");
+        }
+	}
+
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="RequestResponse">
+        <property name="context-root" value="RequestResponse"/>
+        <property name="java-output-path" value="/RequestResponse/build/classes"/>
+    </wb-module>
+</project-modules>
