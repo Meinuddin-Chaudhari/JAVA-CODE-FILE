@@ -1,15 +1,13 @@
 package in.ineuron.controller;
-
 import java.io.IOException;
-
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import in.ineuron.dto.Student;
 import in.ineuron.service.IStudentService;
 import in.ineuron.servicefactory.StudentServiceFactory;
@@ -27,7 +25,8 @@ public class ControllerServlet extends HttpServlet {
 	}
 
 	private void doProcess(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException 
+	{
 
 		IStudentService stdService = StudentServiceFactory.getStudentService();
 
@@ -46,14 +45,14 @@ public class ControllerServlet extends HttpServlet {
 			student.setSaddress(saddr);
 
 			String status = stdService.addStudent(student);
-			PrintWriter out = response.getWriter();
-
+			RequestDispatcher rd = null;
 			if (status.equals("success")) {
-				out.println("<h1 style='color:green; text-align:center;'>REGISTRATION SUCCESFULL</h1>");
+				rd = request.getRequestDispatcher("../success.html");
+				rd.forward(request, response);
 			} else {
-				out.println("<h1 style='color:green; text-align:center;'>REGISTRATION FAILED</h1>");
+				rd = request.getRequestDispatcher("../failure.html");
+				rd.forward(request, response);
 			}
-			out.close();
 		}
 
 		if (request.getRequestURI().endsWith("searchform")) {
@@ -84,23 +83,19 @@ public class ControllerServlet extends HttpServlet {
 			String sid = request.getParameter("sid");
 			String status = stdService.deleteStudent(Integer.parseInt(sid));
 
-			PrintWriter out = response.getWriter();
+			RequestDispatcher rd = null;
 			if (status.equals("success")) {
-				out.println("<body>");
-				out.println("<h1 style='color:green;text-align:center;'>RECORD DELETED SUCCESFULLY</h1>");
-				out.println("</body>");
+				rd = request.getRequestDispatcher("../deletesuccess.html");
+				rd.forward(request, response);
 			} else if (status.equals("failure")) {
-				out.println("<body>");
-				out.println("<h1 style='color:red;text-align:center;'>RECORD DELETION FAILED</h1>");
-				out.println("</body>");
+				rd = request.getRequestDispatcher("../deletefailure.html");
+				rd.forward(request, response);
 
 			} else {
-				out.println("<body>");
-				out.println("<h1 style='color:green;text-align:center;'>RECORD NOT FOUND FOR DELETION</h1>");
-				out.println("</body>");
+				rd = request.getRequestDispatcher("../deletenotfound.html");
+				rd.forward(request, response);
 
 			}
-			out.close();
 		}
 		if (request.getRequestURI().endsWith("editform")) {
 			String sid = request.getParameter("sid");
@@ -115,8 +110,7 @@ public class ControllerServlet extends HttpServlet {
 				out.println("<table>");
 				out.println("<tr><th>ID</th><td>" + student.getSid() + "</td></tr>");
 				out.println("<input type='hidden' name='sid' value='" + student.getSid() + "'/>");
-				out.println("<tr><th>NAME</th><td><input type='text' name='sname' value='" + student.getSname()
-						+ "'/></td></tr>");
+				out.println("<tr><th>NAME</th><td><input type='text' name='sname' value='" + student.getSname()	+ "'/></td></tr>");
 				out.println("<tr><th>AGE</th><td><input type='text' name='sage' value='" + student.getSage()
 						+ "'/></td></tr>");
 				out.println("<tr><th>ADDRESS</th><td><input type='text' name='saddr' value='" + student.getSaddress()
@@ -148,14 +142,15 @@ public class ControllerServlet extends HttpServlet {
 			student.setSage(Integer.parseInt(sage));
 
 			String status = stdService.updateStudent(student);
-			PrintWriter out = response.getWriter();
+			RequestDispatcher rd = null;
 
 			if (status.equals("success")) {
-				out.println("<h1 style='color:green; text-align:center;'>STUDENT RECORD UPDATED SUCCESSFULLY</h1>");
+				rd = request.getRequestDispatcher("../../updatesuccess.html");
+				rd.forward(request, response);
 			} else {
-				out.println("<h1 style='color:green; text-align:center;'>STUDENT RECORD UPDATION FAILED</h1>");
+				rd = request.getRequestDispatcher("../../updatefailure.html");
+				rd.forward(request, response);
 			}
-			out.close();
 
 		}
 	}

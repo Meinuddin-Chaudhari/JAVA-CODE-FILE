@@ -25,3 +25,5 @@
 0:0:0:0:0:0:0:1 - - [05/Feb/2023:14:02:22 +0530] "POST /JDBC-CRUDAPP-WEB/controller/controller/updateRecord HTTP/1.1" 200 86
 0:0:0:0:0:0:0:1 - - [05/Feb/2023:14:02:34 +0530] "GET /JDBC-CRUDAPP-WEB/deleteform.html HTTP/1.1" 200 450
 0:0:0:0:0:0:0:1 - - [05/Feb/2023:14:02:37 +0530] "GET /JDBC-CRUDAPP-WEB/controller/deleteform?sid=11 HTTP/1.1" 200 93
+127.0.0.1 - - [05/Feb/2023:23:22:16 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [05/Feb/2023:23:22:17 +0530] "GET /Url/test/iNeuron/* HTTP/1.1" 200 173
