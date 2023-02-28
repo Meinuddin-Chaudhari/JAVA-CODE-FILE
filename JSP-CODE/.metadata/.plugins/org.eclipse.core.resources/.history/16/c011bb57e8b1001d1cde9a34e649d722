@@ -1,0 +1,9 @@
+<%-- pageContext implicit object to perform attribute management in any scopes --%>
+<%
+	pageContext.setAttribute("k", "page");
+	request.setAttribute("h", "request");
+	session.setAttribute("s", "session");
+	application.setAttribute("m", "application");
+	
+	pageContext.forward("./disp.jsp");
+%>

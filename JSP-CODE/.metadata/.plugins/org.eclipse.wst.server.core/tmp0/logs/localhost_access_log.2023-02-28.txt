@@ -1,0 +1,4 @@
+127.0.0.1 - - [28/Feb/2023:14:19:58 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:14:20:00 +0530] "GET /JSTL-CORE-LIBRARY/URL-related-%20Tag/urlANDparam.jsp HTTP/1.1" 200 325
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:14:21:44 +0530] "GET /JSTL-CORE-LIBRARY/URL-related-%20Tag/urlANDparam.jsp HTTP/1.1" 200 171
+0:0:0:0:0:0:0:1 - - [28/Feb/2023:14:21:54 +0530] "GET /JSTL-CORE-LIBRARY/URL-related-%20Tag/core17.jsp?JAVA=Hyder&JEE=NavinReddy HTTP/1.1" 200 193

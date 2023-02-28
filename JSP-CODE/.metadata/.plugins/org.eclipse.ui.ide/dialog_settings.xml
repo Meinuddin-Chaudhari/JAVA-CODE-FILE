@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\Advance-java-Eclipse-File\JSP\JspScopeApp"/>
+			<item value="E:\Advance-java-Eclipse-File\JSP\JSPScopeaaa"/>
+			<item value="E:\Advance-java-Eclipse-File\JSP\JSPELApp"/>
+			<item value="E:\Advance-java-Eclipse-File\JSP\JspCustomAction-2"/>
+			<item value="E:\Advance-java-Eclipse-File\JSP\JspCustomAction-01"/>
+			<item value="C:\Users\my pc\Desktop\JspStandardAction-06"/>
+			<item value="C:\Users\my pc\Desktop\JspStandardAction-05"/>
+			<item value="C:\Users\my pc\Desktop\JspStandardAction-04"/>
+			<item value="C:\Users\my pc\Desktop\JspStandardAction-03"/>
+			<item value="E:\Advance-java-Eclipse-File\JSP\JspStandardAction-02"/>
+			<item value="C:\Users\my pc\Desktop\JspStandardAction-02"/>
+			<item value="C:\Users\my pc\Desktop\HtmlJspDBApp"/>
+		</list>
+	</section>
+</section>
